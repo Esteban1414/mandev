@@ -49,3 +49,60 @@ a {
 a:hover {
   color: var(--color-secondary);
 }
+
+.about {
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+.about h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.about a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+
+.projects {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.projects h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.project-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.project-card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1.2rem;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.project-card h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.4rem;
+}
+
+.project-card p {
+  margin: 0 0 0.7rem;
+  color: #444;
+}
+
+.project-card a {
+  text-decoration: underline;
+  color: var(--accent);
+  font-weight: bold;
+}

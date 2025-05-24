@@ -1,11 +1,10 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 const email = import.meta.env.PUBLIC_CONTACT_EMAIL;
+const pageTitle = "Contact Me";
 ---
 
-<MainLayout>
-  <slot name="title"></slot>
-
+<MainLayout pageTitle={pageTitle}>
   <section class="contact-section">
     <h1>Let's get in touch</h1>
     <p>
@@ -19,7 +18,11 @@ const email = import.meta.env.PUBLIC_CONTACT_EMAIL;
     >
       <input type="hidden" name="_captcha" value="false" />
       <input type="hidden" name="_template" value="box" />
-      <input type="hidden" name="_next" value="#" />
+      <input
+        type="hidden"
+        name="_next"
+        value="http://localhost:4321/contact?sent=true"
+      />
 
       <label>
         Full Name*
@@ -42,13 +45,28 @@ const email = import.meta.env.PUBLIC_CONTACT_EMAIL;
       </label>
 
       <label>
-        What is 5 + 3?* (Anti-bot)
-        <input type="text" name="antibot" required pattern="8" />
+        What is the result of five plus three?* (Anti-bot)
+        <input type="text" name="antibot" required pattern="[eE]ight" />
       </label>
+
+      <div style="display: none;">
+        <label
+          >Leave this field empty:
+          <input type="text" name="honeypot" />
+        </label>
+      </div>
 
       <button type="submit">Send Message</button>
     </form>
   </section>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("sent") === "true") {
+      alert("Message sent successfully!");
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
+  </script>
 
   <style>
     .contact-section {
@@ -64,7 +82,7 @@ const email = import.meta.env.PUBLIC_CONTACT_EMAIL;
     }
 
     .contact-section p {
-      color: var(--color-gray);
+      color: var(--color-text);
       margin-bottom: 2rem;
     }
 

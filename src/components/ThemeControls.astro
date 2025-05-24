@@ -8,6 +8,7 @@
   <button onclick="setTheme('high-contrast')">⚡</button>
   <button onclick="adjustFont(1)">A+</button>
   <button onclick="adjustFont(-1)">A-</button>
+  <button onclick="resetAccessibility()" title="Reset to default">🔄</button>
 </div>
 
 <script is:inline>
@@ -22,6 +23,14 @@
     const newSize = Math.min(48, Math.max(10, currentSize + change * 2));
     html.style.fontSize = newSize + "px";
     localStorage.setItem("fontSize", newSize);
+  }
+
+  function resetAccessibility() {
+    localStorage.removeItem("theme");
+    localStorage.removeItem("fontSize");
+    document.documentElement.removeAttribute("data-theme");
+    document.documentElement.style.fontSize = "";
+    setTheme("light"); 
   }
 
   window.addEventListener('DOMContentLoaded', () => {
@@ -45,5 +54,11 @@
     border: none;
     border-radius: 0.25rem;
     color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .accessibility-controls button:hover {
+    background-color: var(--color-primary);
   }
 </style>

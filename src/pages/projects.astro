@@ -1,0 +1,99 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+const pageTitle = "Projects";
+---
+
+<MainLayout pageTitle={pageTitle}>
+  <section class="projects">
+    <h1>Projects</h1>
+    <p>
+      Here are some of the projects I've worked on recently. Each one represents
+      a step forward in my journey as a developer.
+    </p>
+
+    <div class="project-list">
+      <div class="project-card">
+        <h2>Moonwave Admin Panel</h2>
+        <p>
+          A secure admin dashboard built with React and MUI, featuring
+          email/password authentication and session management using HTTP-only
+          cookies. The backend is powered by custom Node.js serverless functions
+          with route protection, hosted on Vercel.
+        </p>
+        <a href="https://github.com/Esteban1414/moonwave" target="_blank"
+          >View on GitHub</a
+        >
+      </div>
+
+      <div class="project-card">
+        <h2>NauticStock</h2>
+        <p>
+          Inventory management system for the Mexican Navy's Manzanillo base,
+          built with React.js + Node.js + MySQL. Automates supply tracking,
+          reduces errors, and features stock-level alerts for proactive
+          replenishment.
+        </p>
+        <a href="https://github.com/Esteban1414/NauticStock" target="_blank"
+          >View on GitHub</a
+        >
+      </div>
+
+      <div class="project-card">
+        <h2>For-Us</h2>
+        <p>
+          A social discussion forum centered on the 17 UN Sustainable
+          Development Goals (SDGs). Features include posts, likes, nested
+          comments, sharing, user profiles, admin moderation (bans/reports), and
+          dynamic ODS-themed content switching. Built with PHP, MySQL,
+          JavaScript, and Tailwind CSS.
+        </p>
+        <a href="https://github.com/Esteban1414/For-Us" target="_blank"
+          >View on GitHub</a
+        >
+      </div>
+    </div>
+  </section>
+  <style>
+    .projects {
+      padding: 2rem;
+    }
+
+    h1,
+    h2,
+    p {
+      color: var(--color-text);
+    }
+
+    a {
+      color: var(--color-primary);
+    }
+    
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .project-card {
+      padding: 1.5rem;
+      border: 1px solid var(--color-gray);
+      border-radius: 0.5rem;
+      background-color: var(--color-bg);
+    }
+
+    .project-card h2 {
+      margin-top: 0;
+    }
+
+    .project-card a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      text-decoration: underline;
+    }
+
+    .project-card p {
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</MainLayout>
