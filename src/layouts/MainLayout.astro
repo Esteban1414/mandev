@@ -1,0 +1,20 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><slot name="title" /></title>
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+  <body>
+    <Header />
+    <main style="padding-bottom: 4rem;">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

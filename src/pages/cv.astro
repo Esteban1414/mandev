@@ -1,0 +1,75 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+---
+
+<MainLayout>
+  <slot name="title"></slot>
+
+  <section class="cv-section">
+    <h1>Curriculum Vitae</h1>
+
+    <div class="cv-item">
+      <h2>Esteban Mancilla</h2>
+      <p><strong>Email:</strong> emancillalozoya@gmail.com</p>
+      <p><strong>GitHub:</strong> <a href="https://github.com/Esteban1414" target="_blank">Esteban1414</a></p>
+      <p><strong>Location:</strong> Colima, Mexico</p>
+    </div>
+
+    <div class="cv-item">
+      <h3>Education</h3>
+      <ul>
+        <li>Software Engineering - Universidad de Colima 2022</li>
+      </ul>
+    </div>
+
+    <div class="cv-item">
+      <h3>Skills</h3>
+      <ul>
+        <li>Frontend: React, Astro</li>
+        <li>Backend: Node.js, NestJS, PHP, Django</li>
+        <li>Databases: MongoDB, Firestore, MySQL</li>
+        <li>Tools: Git, Vercel, Firebase</li>
+      </ul>
+    </div>
+
+    <div class="cv-item">
+      <h3>Languages</h3>
+      <ul>
+        <li>Spanish: Native</li>
+        <li>English: Upper Intermediate</li>
+      </ul>
+    </div>
+  </section>
+
+  <style>
+    .cv-section {
+      padding: 2rem 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cv-section h1 {
+      color: var(--color-primary);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .cv-item {
+      margin-bottom: 2rem;
+    }
+
+    .cv-item h2,
+    .cv-item h3 {
+      color: var(--color-secondary);
+    }
+
+    ul {
+      padding-left: 1.5rem;
+    }
+
+    a {
+      color: var(--color-primary);
+      text-decoration: underline;
+    }
+  </style>
+</MainLayout>

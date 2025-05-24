@@ -1,0 +1,28 @@
+---
+// src/components/Footer.astro
+---
+
+<footer>
+  <p>&copy; {new Date().getFullYear()} Esteban Mancilla. All rights reserved.</p>
+</footer>
+
+<style>
+  footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-primary);
+    color: white;
+    text-align: center;
+    padding: 0.75rem;
+    font-size: 0.875rem;
+    z-index: 10;
+  }
+
+  @media print {
+    footer {
+      display: none;
+    }
+  }
+</style>

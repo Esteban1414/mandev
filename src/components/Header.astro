@@ -1,0 +1,45 @@
+---
+// src/components/Header.astro
+import ThemeControls from './ThemeControls.astro';
+---
+
+<header>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/cv">CV</a></li>
+      <li><a href="/contact">Contact</a></li>
+      <li><a href="/extra">Extra</a></li>
+    </ul>
+  </nav>
+  <ThemeControls />
+</header>
+
+<style>
+  header {
+    padding: 1rem;
+    background-color: var(--color-primary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links a {
+    color: white;
+    font-weight: bold;
+  }
+
+  .nav-links a:hover {
+    color: var(--color-secondary);
+  }
+</style>

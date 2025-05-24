@@ -1,0 +1,49 @@
+---
+// src/components/ThemeControls.astro
+---
+
+<div class="accessibility-controls">
+  <button onclick="setTheme('light')">☀️</button>
+  <button onclick="setTheme('dark')">🌙</button>
+  <button onclick="setTheme('high-contrast')">⚡</button>
+  <button onclick="adjustFont(1)">A+</button>
+  <button onclick="adjustFont(-1)">A-</button>
+</div>
+
+<script is:inline>
+  function setTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }
+
+  function adjustFont(change) {
+    const html = document.documentElement;
+    const currentSize = parseFloat(getComputedStyle(html).fontSize);
+    const newSize = Math.min(48, Math.max(10, currentSize + change * 2));
+    html.style.fontSize = newSize + "px";
+    localStorage.setItem("fontSize", newSize);
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem("theme");
+    const savedFont = localStorage.getItem("fontSize");
+    if (savedTheme) setTheme(savedTheme);
+    if (savedFont) document.documentElement.style.fontSize = savedFont + "px";
+  });
+</script>
+
+<style>
+  .accessibility-controls {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .accessibility-controls button {
+    font-size: 1rem;
+    padding: 0.3rem 0.5rem;
+    background-color: var(--color-secondary);
+    border: none;
+    border-radius: 0.25rem;
+    color: white;
+  }
+</style>
